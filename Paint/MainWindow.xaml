@@ -100,7 +100,6 @@
                                 <Slider x:Name="RedC" Background="Red" Minimum="0" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" ValueChanged="Color_ValueChanged2"/>
                                 <Slider x:Name="GreenC" Background="Green" Minimum="0" Maximum="255" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="50" ValueChanged="Color_ValueChanged2"/>
                                 <Slider x:Name="BlueC" Background="Blue" Minimum="0" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" ValueChanged="Color_ValueChanged2"/>
-                                <Label x:Name="lFill" Background="White"/>
                             </StackPanel>
                             
                         </MenuItem>

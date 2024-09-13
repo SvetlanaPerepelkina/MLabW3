@@ -181,14 +181,18 @@ namespace Paint
             label.Foreground = Brushes.White;
             aboutThisProgramm.ShowDialog();
         }
-
+        
         private void Color_ValueChanged2(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            ColorSelect(sender);                             
-          
-            color1 = Color.FromRgb(colorFill.red, colorFill.green, colorFill.blue);
-            this.lFill.Background = new SolidColorBrush(color1);
-            this.polygon.Fill = lFill.Background;
+            try
+            {
+                ColorSelectFill(sender);
+
+                color1 = Color.FromRgb(colorFill.red, colorFill.green, colorFill.blue);
+                SolidColorBrush solidColorBrush = new SolidColorBrush(color1);
+                this.polygon.Fill = solidColorBrush;
+            }
+            catch { new Exception(); }
         }
 
         private void Color_ValueChanged3(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -341,6 +345,25 @@ namespace Paint
             if (crlName.Equals("BlueColor") || crlName.Equals("Blue"))
             {
                 colorStroke.blue = Convert.ToByte(value);
+            }
+        }
+
+        private void ColorSelectFill(object sender)
+        {
+            var slider = sender as Slider; //Определяем имя контрола, который покрутили
+            string crlName = slider.Name;  // Получаем значение контрола
+            double value = slider.Value;   //В зависимости от выбранного контрола, меняем ту или иную компоненту и переводим ее в тип byte
+            if (crlName.Equals("RedC"))
+            {
+                colorFill.red = Convert.ToByte(value);
+            }
+            if (crlName.Equals("GreenC"))
+            {
+                colorFill.green = Convert.ToByte(value);
+            }
+            if (crlName.Equals("BlueC"))
+            {
+                colorFill.blue = Convert.ToByte(value);
             }
         }
     }
